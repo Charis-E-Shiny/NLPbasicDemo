@@ -1,0 +1,152 @@
+:focus-visible {
+  outline: 3px solid #0891b2;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.mode-switch button,
+.tabs button,
+.left-panel button,
+.object-list button {
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.promptbar textarea {
+  min-width: 0;
+  color: #0f172a;
+}
+
+.promptbar textarea::placeholder {
+  color: #64748b;
+}
+
+.promptbar button {
+  min-width: 42px;
+}
+
+.right-panel small {
+  color: #64748b;
+}
+
+.left-panel button:focus-visible,
+.top-actions button:focus-visible,
+.tabs button:focus-visible,
+.export-menu button:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+
+  .right-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    height: auto;
+    min-height: 58px;
+    padding: 8px 10px;
+    gap: 7px;
+  }
+
+  .brand b {
+    font-size: 15px;
+  }
+
+  .brand small {
+    font-size: 10px;
+  }
+
+  .top-actions {
+    gap: 5px;
+  }
+
+  .top-actions button,
+  .button {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  .modebar {
+    padding: 0 7px;
+    gap: 7px;
+  }
+
+  .mode-switch button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .status {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+
+  .workspace {
+    grid-template-columns: 94px minmax(0, 1fr);
+  }
+
+  .left-panel {
+    padding: 7px 5px;
+  }
+
+  .left-panel h3 {
+    font-size: 9px;
+  }
+
+  .left-panel button {
+    padding: 7px 5px;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .promptbar {
+    left: 7px;
+    right: 7px;
+    bottom: 45px;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .promptbar textarea {
+    height: 40px;
+    padding: 9px 5px;
+    font-size: 11px;
+  }
+
+  .promptbar button {
+    min-width: 36px;
+    padding: 0 7px;
+    font-size: 11px;
+  }
+
+  .tabs {
+    padding-left: 5px;
+  }
+
+  .tabs button {
+    padding: 7px 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}

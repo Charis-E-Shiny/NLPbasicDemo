@@ -1,0 +1,51 @@
+{
+  "format": "CADVoice",
+  "version": 1,
+  "mode": "ECAD",
+  "scene": [
+    {
+      "id": "uno-r3-board",
+      "type": "arduino",
+      "name": "Arduino UNO R3",
+      "position": [0, 0, 0.007],
+      "rotation": [0, 0, 0],
+      "size": [0.0686, 0.0534, 0.014],
+      "material": "pcb",
+      "color": "#176b4d",
+      "relations": []
+    },
+    {
+      "id": "uno-main-mcu",
+      "type": "mcu",
+      "name": "ATmega328P",
+      "position": [0.002, 0.006, 0.0036],
+      "rotation": [0, 0, 0],
+      "size": [0.028, 0.009, 0.004],
+      "material": "plastic",
+      "color": "#20252b",
+      "relations": [{"relation": "on", "target": "uno-r3-board", "text": "mounted on Arduino UNO R3"}]
+    },
+    {
+      "id": "uno-status-led",
+      "type": "led",
+      "name": "Status LED",
+      "position": [0.021, 0.008, 0.0026],
+      "rotation": [0, 0, 0],
+      "size": [0.004, 0.004, 0.005],
+      "material": "plastic",
+      "color": "#22c55e",
+      "relations": [{"relation": "on", "target": "uno-r3-board", "text": "mounted on Arduino UNO R3"}]
+    },
+    {
+      "id": "uno-resistor",
+      "type": "resistor",
+      "name": "LED resistor",
+      "position": [0.025, 0.008, 0.002],
+      "rotation": [0, 0, 0],
+      "size": [0.006, 0.002, 0.002],
+      "material": "metal",
+      "color": "#c0a080",
+      "relations": [{"relation": "on", "target": "uno-r3-board", "text": "mounted on Arduino UNO R3"}]
+    }
+  ]
+}

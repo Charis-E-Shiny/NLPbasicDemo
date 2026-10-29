@@ -1,0 +1,25 @@
+{
+  "name": "cadvoice",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local-first natural-language CAD and ECAD scene builder",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "train:model": "python scripts/train_model.py"
+  },
+  "dependencies": {
+    "jspdf": "^3.0.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "three": "^0.179.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^7.1.2"
+  }
+}
