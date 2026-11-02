@@ -5,3 +5,10 @@ __pycache__/
 *.py[cod]
 .DS_Store
 Thumbs.db
+
+# CADVoice
+.env
+tools/.cache/
+ml/__pycache__/
+tests/py/__pycache__/
+.pytest_cache/

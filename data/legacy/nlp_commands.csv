@@ -1,0 +1,101 @@
+text,intent,split
+create a cube,create,train
+make a table,create,train
+add a wooden chair,create,train
+generate a metal lamp,create,train
+build a laptop,create,train
+draw a sphere,create,train
+insert a pcb,create,test
+create a blue desk,create,test
+make the table red,update,train
+change the laptop color to silver,update,train
+set the chair width to 60 cm,update,train
+resize the cube to 20 mm wide,update,train
+rename the lamp to reading light,update,train
+rotate the chair 45 degrees,update,train
+change the table height to 75 cm,update,test
+set the wall depth to 12 cm,update,test
+delete the chair,delete,train
+remove the table,delete,train
+erase the lamp,delete,train
+delete the selected cube,delete,train
+remove the laptop from the scene,delete,train
+delete the desk,delete,test
+erase the sphere,delete,test
+remove the pcb,delete,test
+move the chair left,move,train
+put the lamp on the table,move,train
+place a cube next to the desk,move,train
+move the laptop 10 cm right,move,train
+position the sphere behind the chair,move,train
+put the led above the pcb,move,test
+move the table forward,move,test
+place a resistor beside the board,move,test
+duplicate the chair,duplicate,train
+copy the table,duplicate,train
+clone the laptop,duplicate,train
+make a copy of the cube,duplicate,train
+duplicate this lamp,duplicate,train
+copy the desk,duplicate,test
+clone the sphere,duplicate,test
+make another copy of the pcb,duplicate,test
+select the chair,select,train
+choose the lamp,select,train
+focus the table,select,train
+select the object named laptop,select,train
+choose the cube,select,train
+focus the desk,select,test
+select the pcb,select,test
+choose the resistor,select,test
+clear the scene,clear,train
+reset the design,clear,train
+start a new scene,clear,train
+remove everything,clear,train
+clear all objects,clear,train
+reset the workspace,clear,test
+start over with a new scene,clear,test
+clear my design,clear,test
+undo,undo,train
+undo the last change,undo,train
+revert the previous action,undo,train
+go back one step,undo,train
+undo my last edit,undo,train
+undo that,undo,test
+revert the last operation,undo,test
+reverse the last change,undo,test
+redo,redo,train
+redo the last action,redo,train
+restore the previous change,redo,train
+repeat the edit,redo,train
+redo my last step,redo,train
+redo that,redo,test
+restore my last action,redo,test
+repeat the previous operation,redo,test
+show the top view,view,train
+zoom to fit all objects,view,train
+frame the whole scene,view,train
+switch to front view,view,train
+show a side view,view,train
+fit the camera to the design,view,train
+look from above,view,train
+zoom in on the objects,view,train
+fit this design to the viewport,view,test
+look at the scene from above,view,test
+zoom closer to the model,view,test
+switch to ecad mode,mode,train
+change to cad mode,mode,train
+open the ecad workspace,mode,train
+use cad mode,mode,train
+switch mode to ecad,mode,train
+enable cad mode,mode,test
+go to ecad,mode,test
+switch to cad,mode,test
+help,help,train
+show command examples,help,train
+what commands can I use,help,train
+list available instructions,help,train
+how do I use this app,help,train
+show me examples,help,test
+what can I say,help,test
+display the command guide,help,train
+display the help guide,help,test

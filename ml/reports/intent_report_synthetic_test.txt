@@ -1,0 +1,30 @@
+                  precision    recall  f1-score   support
+
+     clear_scene       1.00      0.67      0.80        60
+   connect_parts       1.00      0.07      0.14        40
+   create_object       0.99      0.82      0.90       220
+   delete_object       0.47      1.00      0.64        80
+duplicate_object       1.00      1.00      1.00        60
+     export_file       1.00      0.75      0.86        80
+            help       1.00      0.67      0.80        60
+     move_object       0.93      0.57      0.71       120
+             oos       0.00      0.00      0.00         0
+     query_scene       1.00      1.00      1.00        60
+            redo       1.00      1.00      1.00        40
+   rename_object       1.00      1.00      1.00        40
+   resize_object       1.00      1.00      1.00       120
+   rotate_object       1.00      1.00      1.00        60
+    save_project       1.00      1.00      1.00        40
+    scale_object       1.00      1.00      1.00       100
+   select_object       0.54      1.00      0.70        60
+       set_color       0.95      1.00      0.98        80
+    set_material       1.00      1.00      1.00        60
+        set_mode       0.67      1.00      0.80        40
+    set_property       1.00      0.75      0.86        80
+       set_value       1.00      1.00      1.00        40
+        set_view       1.00      0.93      0.97        60
+            undo       0.91      1.00      0.95        40
+
+        accuracy                           0.87      1640
+       macro avg       0.89      0.84      0.84      1640
+    weighted avg       0.94      0.87      0.88      1640

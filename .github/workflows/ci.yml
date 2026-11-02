@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
   pull_request:
@@ -12,12 +11,19 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
       - run: npm ci
-      - run: npm run train:model
+      - run: pip install -r tools/requirements.txt
       - run: npm test
+      - run: npm run test:py
       - run: npm run build
+      - name: Browser smoke test
+        run: |
+          pip install playwright && python -m playwright install --with-deps chromium
+          npx vite preview --port 4173 &
+          sleep 5
+          python tests/e2e/smoke.py http://localhost:4173/

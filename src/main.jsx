@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { interpretCommand } from "./nlp.js";
+import { realAssembly, loadRealModels } from "./realModels.js";
+import { fallbackEnabled, askFallback } from "./nlu/fallback.js";
 import "./styles.css";
 import "./responsive.css";
 
@@ -53,7 +55,8 @@ function makeObject(type, props={}) {
     led: {name:"LED", size:[.006,.006,.006], material:"plastic"},
     mcu: {name:"MCU", size:[.012,.012,.004], material:"plastic"},
     arduino: {name:"Arduino UNO R3", size:[.0686,.0534,.014], material:"pcb"},
-    laptop: {name:"Laptop", size:[.32,.22,.025], material:"aluminum"}
+    laptop: {name:"Laptop", size:[.32,.22,.025], material:"aluminum"},
+    sofa: {name:"Sofa", size:[1.9,.9,.8], material:"fabric"}
   };
   const p = presets[type] || presets.cube;
   return {
@@ -124,6 +127,8 @@ function createMesh(obj) {
   root.userData.objectId = obj.id;
   const [w,d,h] = obj.size;
   const mat = matFor(obj);
+  const real = realAssembly(obj);
+  if (real) { root.add(real); return root; }
 
   // Parametric visual assemblies so furniture/components don't look like cubes.
   if (obj.type === "table" || obj.type === "desk") {
@@ -397,6 +402,8 @@ function App(){
   const [prompt,setPrompt]=useState("");
   const [status,setStatus]=useState("Ready — no account or database required.");
   const [tab,setTab]=useState("visual");
+  const [modelsVersion,setModelsVersion]=useState(0);
+  const [aiOn,setAiOn]=useState(false);
   const [scriptLang,setScriptLang]=useState("openscad");
   const [script,setScript]=useState("");
   const [exportOpen,setExportOpen]=useState(false);
@@ -437,6 +444,13 @@ function App(){
   },[]);
 
   useEffect(()=>{
+    loadRealModels(import.meta.env.BASE_URL+"models3d/")
+      .then(()=>setModelsVersion(v=>v+1))
+      .catch(error=>setStatus(`Real 3D models unavailable (${error.message}); using built-in shapes.`));
+    fallbackEnabled().then(setAiOn);
+  },[]);
+
+  useEffect(()=>{
     sceneStateRef.current=scene;
     const group=groupRef.current; if(!group) return;
     while(group.children.length){
@@ -445,7 +459,7 @@ function App(){
       group.remove(child);
     }
     scene.forEach(o=>group.add(createMesh(o)));
-  },[scene]);
+  },[scene,modelsVersion]);
 
   const changeScene=(next)=>{
     const current=sceneStateRef.current;
@@ -485,8 +499,8 @@ function App(){
     camera.lookAt(center);controls.update();
   };
 
-  const runPrompt=()=>{
-    const r=interpretCommand(prompt,scene,makeObject); setStatus(r.message);
+  const applyResult=r=>{
+    setStatus(r.message);
     if(r.kind==="create"){changeScene(s=>[...s,r.object]);setSelected(r.object.id);}
     if(r.kind==="update"){
       changeScene(s=>s.map(o=>{
@@ -504,6 +518,22 @@ function App(){
     if(r.kind==="redo")redoScene();
     if(r.kind==="mode")setMode(r.mode);
     if(r.kind==="view")changeView(r.view);
+    if(r.kind==="export")runExport(r.format);
+  };
+
+  // Local model first. If it is unsure and the server has a Gemini key, ask the backup parser.
+  const runPrompt=async()=>{
+    const text=prompt;
+    const context={allowAI:aiOn,selectedId:selected};
+    let r=interpretCommand(text,scene,makeObject,context);
+    if(r.kind==="ask-ai"){
+      setStatus(r.message);
+      const intent=await askFallback(text);
+      r=intent
+        ? interpretCommand(text,scene,makeObject,{...context,intent})
+        : {kind:"none",message:"I'm not sure what you meant. Try “help”."};
+    }
+    applyResult(r);
     setPrompt("");
   };
 

@@ -1,28 +1,31 @@
-# Contributing
+# Contributing to CADVoice
 
-Thanks for helping improve CADVoice. Keep changes focused, preserve offline-first behavior, and avoid sending project content to external services.
+Thanks for helping! Code, data, bug reports, and model improvements are all welcome.
 
-## Development setup
-
-1. Install Node.js 20+ and Python 3.9+ (Python is only required to retrain the NLP model).
-2. Run `npm ci`.
-3. Run `npm run dev` to start the local Vite server.
-
-## Before opening a pull request
-
-```powershell
-npm test
-npm run build
+## Set up
+```bash
+npm install
+npm run dev              # http://localhost:5173
+npm test                 # Node tests
+pip install -r tools/requirements.txt && npm run test:py
 ```
 
-For changes to training phrases or model behavior, update `data/nlp_commands.csv`, keep the train/test split independent, run `npm run train:model`, and check the reported held-out accuracy. Add focused regression tests in `tests/` for parser and scene behavior.
+## Adding voice commands
+1. Add templates to `ml/data/templates.csv` (`intent,split,template`). `split=test` marks held-out phrasings.
+2. Add new vocabulary to `ml/data/lexicon/*.csv`.
+3. Add hand-written examples to `ml/data/gold.csv`. Never generate gold examples from the templates.
+4. Run `npm run train:model`, then `npm test` and `npm run test:py`. Commit the regenerated `src/nlu/model/*.json` and `ml/reports/metrics.json`. The quality gates must still pass.
 
-## Contribution guidelines
+## Adding 3D models
+Only add models under a licence that allows redistribution (CC0, CC-BY, MIT, Apache-2.0). Add an entry to `tools/models.config.json` with `license`, `author`, and `page`, run `python tools/build_models.py <id>`, and map the object type in `src/realModelMap.js`.
 
-- Explain the user-visible behavior and any limitations in the pull request.
-- Keep dependencies and third-party assets minimal; include license and attribution details for any new asset.
-- Do not commit credentials, private user designs, generated build output, or `node_modules`.
-- Use accessible labels and provide visible error/status feedback.
-- Do not claim manufacturing, EDA, or production guarantees that the implementation does not provide.
+## Working on the AI backup
+Never commit a real key. Keys belong in `.env` (git-ignored); see `.env.example`. Tests never call the network: they use a fake `fetch`.
 
-By submitting a contribution, you agree that it may be distributed under the project's MIT License.
+## Pull requests
+- Keep changes focused and describe what changed and why.
+- Make sure `npm test` and `npm run build` pass. Add tests for new behaviour.
+- Match the existing style (ES modules, React function components).
+
+## Code of conduct
+Be respectful and constructive. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

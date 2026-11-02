@@ -1,0 +1,32 @@
+surface,canonical
+stl,stl
+stl file,stl
+obj,obj
+obj file,obj
+glb,glb
+gltf,glb
+glb file,glb
+png,png
+png image,png
+image,png
+picture,png
+screenshot,png
+pdf,pdf
+pdf report,pdf
+openscad,openscad
+open scad,openscad
+scad,openscad
+cadquery,cadquery
+cad query,cadquery
+python script,cadquery
+openjscad,openjscad
+jscad,openjscad
+autolisp,autolisp
+lisp,autolisp
+autocad script,autolisp
+bom,bom
+bill of materials,bom
+parts list,bom
+ecad json,ecad-json
+netlist,ecad-json
+project file,project

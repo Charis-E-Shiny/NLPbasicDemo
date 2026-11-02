@@ -1,0 +1,28 @@
+surface,canonical
+top,top
+top down,top
+plan,top
+front,front
+side,right
+right,right
+left,left
+back,back
+rear,back
+bottom,bottom
+isometric,iso
+iso,iso
+perspective,iso
+three d,iso
+default,iso
+zoom in,zoom_in
+zoom out,zoom_out
+zoom to fit,fit
+fit all,fit
+fit to screen,fit
+fit everything,fit
+show everything,fit
+show all,fit
+reset view,iso
+reset the view,iso
+default view,iso
+home view,iso

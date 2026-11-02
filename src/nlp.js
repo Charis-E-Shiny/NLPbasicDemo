@@ -1,4 +1,4 @@
-import intentModel from "./intent-model.json" with { type: "json" };
+import { parse as parseLocal } from "./nlu/index.js";
 
 const INTENT_WORDS = {
   create: /\b(create|add|make|generate|draw|build|insert)\b/i,
@@ -24,21 +24,8 @@ const MATERIAL_COLORS = {
   wood: "#8b5a2b", metal: "#9ca3af", steel: "#6b7280", aluminum: "#d1d5db",
   plastic: "#f3f4f6", glass: "#93c5fd", copper: "#b87333", pcb: "#176b4d"
 };
-const TYPES = ["laptop", "table", "chair", "desk", "wall", "cube", "cylinder", "sphere", "lamp", "pcb", "resistor", "led", "mcu", "arduino"];
+const TYPES = ["laptop", "table", "chair", "desk", "sofa", "wall", "cube", "cylinder", "sphere", "lamp", "pcb", "resistor", "led", "mcu", "arduino"];
 const MATERIALS = ["wood", "wooden", "metal", "steel", "aluminum", "plastic", "glass", "copper", "pcb", "silver"];
-
-function classifyIntent(text) {
-  const tokens = text.toLowerCase().match(/[a-z0-9]+/g) || [];
-  const features = new Set(tokens);
-  for (let i = 0; i < tokens.length - 1; i++) features.add(`${tokens[i]}_${tokens[i + 1]}`);
-
-  const scores = Object.entries(intentModel.classes).map(([intent, model]) => {
-    let score = Math.log(model.prior);
-    for (const feature of features) score += Math.log(model.features[feature] || model.unknown);
-    return [intent, score];
-  }).sort((a, b) => b[1] - a[1]);
-  return scores[0]?.[0] || "unknown";
-}
 
 function findIntent(text, hasTarget) {
   if (/\b(clear|reset|start over|remove)\b/i.test(text) && /\b(all|everything|scene|workspace)\b/i.test(text)) return "clear";
@@ -47,7 +34,7 @@ function findIntent(text, hasTarget) {
       /\b(change|make|set|update|resize|scale|turn|rotate|rename)\b/i.test(text)) return "update";
   const explicit = Object.entries(INTENT_WORDS).find(([, pattern]) => pattern.test(text));
   if (explicit) return explicit[0];
-  return classifyIntent(text);
+  return null;
 }
 
 function findTarget(text, scene) {
@@ -138,14 +125,24 @@ function parseAngle(text) {
   return match ? Number(match[1]) : null;
 }
 
-export function interpretCommand(text, scene, makeObject) {
+export function interpretCommand(text, scene, makeObject, options = {}) {
   const command = text.trim();
   if (!command) return { kind: "none", message: "Type a design instruction." };
+  // options.intent: intent chosen by the backup parser. options.allowAI: ask it when unsure.
+  const local = options.intent ? { intent: options.intent, entities: [] } : parseLocal(command);
+  if (local.intent === "unknown") {
+    return options.allowAI ? { kind: "ask-ai", message: "Checking with the backup AI…" } : { kind: "none", message: UNSURE_MESSAGE };
+  }
+  if (UNSUPPORTED[local.intent]) return { kind: "none", message: UNSUPPORTED[local.intent] };
+  if (local.intent === "query_scene") return { kind: "none", message: summarizeScene(scene) };
+  if (local.intent === "export_file" || local.intent === "save_project") return exportResult(local, command);
 
   const relationIndex=command.search(/\b(?:next to|beside|near|left of|right of|on top of|on|above|over|below|under|behind|in front of)\b/i);
   const commandTarget=relationIndex<0?command:command.slice(0,relationIndex);
-  const target = findTarget(commandTarget, scene);
-  const intent = findIntent(command, Boolean(target));
+  // pronouns ("it", "that", "this") refer to the currently selected object
+  const target = findTarget(commandTarget, scene) ||
+    (/\b(it|that|this|selected|one)\b/i.test(commandTarget) ? scene.find(o => o.id === options.selectedId) : undefined);
+  const intent = LEGACY_INTENT[local.intent] || findIntent(command, Boolean(target));
   const color = extractColor(command);
 
   if (intent === "help") return { kind: "none", message: "Try: create a 120 cm table, add a lamp on the table, change the table color to blue, or undo." };
@@ -170,6 +167,10 @@ export function interpretCommand(text, scene, makeObject) {
     return { kind: "create", object: copy, message: `Duplicated ${target.name}.` };
   }
 
+  if (target && local.intent === "scale_object") {
+    const factor = scaleFactor(command);
+    if (factor) return { kind: "update", id: target.id, patch: { size: target.size.map((v) => v * factor) }, message: `Scaled ${target.name} by ${Math.round(factor * 100) / 100}×.` };
+  }
   if (target && intent === "update") {
     const patch = {};
     if (color) patch.color = color;
@@ -191,6 +192,10 @@ export function interpretCommand(text, scene, makeObject) {
     if (/\b(rename|name)\b/i.test(command)) {
       const name = command.match(/\b(?:rename|name)\s+(?:the\s+)?(?:\w+\s+)?(?:to|as)\s+(.+)$/i);
       if (name) patch.name = name[1].trim();
+    }
+    if (local.intent === "set_value") {
+      const value = local.entities.find((e) => e.type === "VALUE");
+      if (value) patch.value = value.text;
     }
     if (!Object.keys(patch).length) return { kind: "none", message: "Specify a color, material, dimension, angle, or new name." };
     return { kind: "update", id: target.id, patch, message: `Updated ${target.name}.` };
@@ -221,6 +226,7 @@ export function interpretCommand(text, scene, makeObject) {
     const relationIndex=command.search(/\b(?:next to|beside|near|left of|right of|on top of|on|above|over|below|under|behind|in front of)\b/i);
     const description=relationIndex<0?command:command.slice(0,relationIndex);
     const type = TYPES.find(candidate => new RegExp(`\\b${candidate}s?\\b`, "i").test(description)) ||
+      objectTypeFromEntities(local.entities) ||
       (/\b(circuit board|pcb board|board)\b/i.test(description) ? "pcb" : null);
     if (!type) return { kind: "none", message: "Specify an object type such as cube, chair, laptop, PCB, or Arduino." };
     const material = (description.match(new RegExp(`\\b(${MATERIALS.join("|")})\\b`, "i")) || [])[1];
@@ -245,4 +251,63 @@ export function interpretCommand(text, scene, makeObject) {
 
   if (target) return { kind: "select", id: target.id, message: `Selected ${target.name}.` };
   return { kind: "none", message: "I couldn't map that instruction. Try “Create a wooden table 120 cm wide” or “help”." };
+}
+
+// ---- trained-NLU integration -------------------------------------------------------------
+const UNSURE_MESSAGE = 'I\'m not sure what you meant. Try "create a 120 cm table", "make the chair red", "undo", or "help".';
+
+const UNSUPPORTED = {
+  connect_parts: "Wiring between parts is not simulated yet. Nothing was changed.",
+  set_property: "Articulated parts (lids, screens) are not modelled yet. Use the screen angle field on a laptop instead.",
+};
+
+// trained intent -> the rule-based executor's intent names
+const LEGACY_INTENT = {
+  create_object: "create", resize_object: "update", scale_object: "update", set_color: "update",
+  set_material: "update", rotate_object: "update", rename_object: "update", set_value: "update",
+  move_object: "move", delete_object: "delete", clear_scene: "clear", duplicate_object: "duplicate",
+  select_object: "select", undo: "undo", redo: "redo", set_view: "view", set_mode: "mode", help: "help",
+};
+
+// catalog names the rule-based type list does not know
+const OBJECT_TYPE = {
+  "raspberry pi pico": "mcu", pico: "mcu", esp32: "mcu", atmega: "mcu", atmega328: "mcu", atmega328p: "mcu",
+  microcontroller: "mcu", mcu: "mcu", nano: "arduino", mega: "arduino", uno: "arduino", couch: "sofa",
+};
+
+function objectTypeFromEntities(entities) {
+  const obj = entities.find((e) => e.type === "OBJ");
+  return obj ? OBJECT_TYPE[obj.text.toLowerCase()] || null : null;
+}
+
+function summarizeScene(scene) {
+  if (!scene.length) return "The scene is empty.";
+  return `${scene.length} object(s): ${scene.map((o) => o.name).join(", ")}.`;
+}
+
+function scaleFactor(command) {
+  const t = command.toLowerCase();
+  if (/\b(twice|double|two times)\b/.test(t)) return 2;
+  if (/\b(triple|three times)\b/.test(t)) return 3;
+  if (/\b(half|halve)\b/.test(t)) return 0.5;
+  const percent = t.match(/(\d+(?:\.\d+)?)\s*%/);
+  if (percent) return /smaller|shrink|reduce|decrease|less/.test(t) ? 1 - Number(percent[1]) / 100 : 1 + Number(percent[1]) / 100;
+  const times = t.match(/(\d+(?:\.\d+)?)\s*times/);
+  if (times) return Number(times[1]);
+  if (/\b(bigger|larger|enlarge|grow|increase)\b/.test(t)) return 1.25;
+  if (/\b(smaller|shrink|reduce|decrease)\b/.test(t)) return 0.8;
+  return null;
+}
+
+function exportResult(local, command) {
+  if (local.intent === "save_project") return { kind: "export", format: "json", message: "Saving the project file." };
+  const wanted = (local.entities.find((e) => e.type === "FORMAT")?.text || command).toLowerCase();
+  const formats = [
+    [/glb|gltf/, "glb"], [/\bstl\b/, "stl"], [/\bobj\b/, "obj"], [/png|image|picture|screenshot/, "png"], [/pdf/, "pdf"],
+    [/openscad|\bscad\b/, "openscad"], [/cadquery|cad query|python/, "cadquery"], [/openjscad|jscad/, "openjscad"],
+    [/bom|bill of materials|parts list/, "bom"], [/netlist|ecad/, "ecad-json"], [/json|project|cadvoice/, "json"],
+  ];
+  const hit = formats.find(([pattern]) => pattern.test(wanted));
+  if (!hit) return { kind: "none", message: "Export format not recognised. Try STL, OBJ, GLB, OpenSCAD, CadQuery, OpenJSCAD, PDF, PNG, BOM or project file." };
+  return { kind: "export", format: hit[1], message: `Exporting ${hit[1].toUpperCase()}.` };
 }

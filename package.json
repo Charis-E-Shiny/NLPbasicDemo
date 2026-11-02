@@ -2,15 +2,17 @@
   "name": "cadvoice",
   "private": true,
   "version": "1.0.0",
-  "description": "Local-first natural-language CAD and ECAD scene builder",
+  "description": "CADVoice: local-first natural-language CAD and ECAD scene builder with a trained NLU model and real 3D models.",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --test",
-    "train:model": "python scripts/train_model.py"
+    "test": "node --test tests/nlp.test.js tests/js/*.test.mjs",
+    "test:py": "python -m pytest -q tests/py",
+    "train:model": "python ml/train.py",
+    "test:e2e": "python tests/e2e/smoke.py http://localhost:4173/"
   },
   "dependencies": {
     "jspdf": "^3.0.2",

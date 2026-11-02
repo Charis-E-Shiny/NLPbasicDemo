@@ -1,0 +1,388 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "id": "arduino_uno",
+      "name": "Arduino Uno R3 (Freaduino-UNO compatible)",
+      "type": "arduino_uno",
+      "category": "ecad",
+      "file": "arduino_uno.glb",
+      "size": [
+        0.07058,
+        0.05465,
+        0.01528
+      ],
+      "material": "pcb",
+      "parts": [
+        "freaduino-uno",
+        "freaduino-uno_1",
+        "freaduino-uno_2",
+        "freaduino-uno_3",
+        "freaduino-uno_4",
+        "freaduino-uno_5",
+        "freaduino-uno_6",
+        "freaduino-uno_7",
+        "freaduino-uno_8",
+        "freaduino-uno_9",
+        "freaduino-uno_10",
+        "freaduino-uno_11",
+        "freaduino-uno_12",
+        "freaduino-uno_13"
+      ],
+      "triangles": 54686,
+      "bytes": 996856,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Computing/SingleBoardComputers/Arduino"
+    },
+    {
+      "id": "arduino_nano",
+      "name": "Arduino Nano Rev3.0",
+      "type": "arduino_nano",
+      "category": "ecad",
+      "file": "arduino_nano.glb",
+      "size": [
+        0.0463,
+        0.018,
+        0.0185
+      ],
+      "material": "pcb",
+      "parts": [
+        "Fusion015"
+      ],
+      "triangles": 2404,
+      "bytes": 43588,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Computing/SingleBoardComputers/Arduino"
+    },
+    {
+      "id": "arduino_mega",
+      "name": "Arduino Mega 2560",
+      "type": "arduino_mega",
+      "category": "ecad",
+      "file": "arduino_mega.glb",
+      "size": [
+        0.1088,
+        0.05316,
+        0.01481
+      ],
+      "material": "pcb",
+      "parts": [
+        "Arduino-mega",
+        "Arduino-mega_1",
+        "Arduino-mega_2",
+        "Arduino-mega_3",
+        "Arduino-mega_4",
+        "Arduino-mega_5"
+      ],
+      "triangles": 26780,
+      "bytes": 488968,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Computing/SingleBoardComputers/Arduino"
+    },
+    {
+      "id": "raspberry_pi_pico",
+      "name": "Raspberry Pi Pico",
+      "type": "pico",
+      "category": "ecad",
+      "file": "raspberry_pi_pico.glb",
+      "size": [
+        0.0523,
+        0.021,
+        0.00373
+      ],
+      "material": "pcb",
+      "parts": [
+        "PICO_WINBOND.STEP",
+        "PICO_AEL.STEP",
+        "PICO_DIODES.STEP",
+        "PICO_RICHTEK.STEP",
+        "PICO_MURATA.STEP_1",
+        "PICO_MURATA.STEP",
+        "PICO_BOURNS.STEP",
+        "PICO_REF_ONSEMI.STEP",
+        "PICO_REF_LED.STEP",
+        "PICO_REF_MICROCONTROLLER.STEP",
+        "PICO_REF_SWITCH.STEP",
+        "PICO_REF_USB.STEP",
+        "PICO_REF_BOARD.STEP"
+      ],
+      "triangles": 20680,
+      "bytes": 380336,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Computing/SingleBoardComputers/Raspberry"
+    },
+    {
+      "id": "esp32_devkit",
+      "name": "ESP32 DOIT DevKit V1",
+      "type": "esp32",
+      "category": "ecad",
+      "file": "esp32_devkit.glb",
+      "size": [
+        0.0525,
+        0.0283,
+        0.0132
+      ],
+      "material": "pcb",
+      "parts": [
+        "Fillet",
+        "Header2_Pin15",
+        "Header2_Pin14",
+        "Header2_Pin13",
+        "Header2_Pin12",
+        "Header2_Pin11",
+        "Header2_Pin10",
+        "Header2_Pin09",
+        "Header2_Pin08",
+        "Header2_Pin06",
+        "Header2_Pin05",
+        "Header2_Pin04",
+        "Header2_Pin03",
+        "Header2_Pin02",
+        "Header2_Pin01",
+        "Header2_Housing",
+        "Header1_Pin15",
+        "Header1_Pin14",
+        "Header1_Pin13",
+        "Header1_Pin12",
+        "Header1_Pin11",
+        "Header1_Pin10",
+        "Header1_Pin09",
+        "Header1_Pin08",
+        "Header1_Pin07",
+        "Header1_Pin06",
+        "Header1_Pin05",
+        "Header1_Pin04",
+        "Header1_Pin03",
+        "Header1_Pin02",
+        "Header1_Pin01",
+        "Header1_Housing",
+        "Regulator",
+        "USB_UART_IC",
+        "Button_BOOT",
+        "Button_EN",
+        "MicroUSB",
+        "WROOM32_Shield",
+        "WROOM32_PCB",
+        "PCB",
+        "Header2_Pin07"
+      ],
+      "triangles": 10988,
+      "bytes": 219532,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Computing/SingleBoardComputers/ESP32"
+    },
+    {
+      "id": "led_3mm",
+      "name": "LED 3 mm (through-hole)",
+      "type": "led",
+      "category": "ecad",
+      "file": "led_3mm.glb",
+      "size": [
+        0.00369,
+        0.0191,
+        0.00368
+      ],
+      "material": "plastic",
+      "parts": [
+        "pin_pos",
+        "pin_neg",
+        "lens"
+      ],
+      "triangles": 829,
+      "bytes": 17524,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Electronics%20Parts/LEDs"
+    },
+    {
+      "id": "resistor_axial",
+      "name": "Resistor (axial, through-hole)",
+      "type": "resistor",
+      "category": "ecad",
+      "file": "resistor_axial.glb",
+      "size": [
+        0.0105,
+        0.0023,
+        0.00514
+      ],
+      "material": "plastic",
+      "parts": [
+        "body_a",
+        "leads",
+        "band3",
+        "band2",
+        "band1"
+      ],
+      "triangles": 5238,
+      "bytes": 102440,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Electronics%20Parts/Resistors"
+    },
+    {
+      "id": "capacitor_smd",
+      "name": "Electrolytic capacitor (SMD 6x7)",
+      "type": "capacitor",
+      "category": "ecad",
+      "file": "capacitor_smd.glb",
+      "size": [
+        0.00703,
+        0.0066,
+        0.00772
+      ],
+      "material": "metal",
+      "parts": [
+        "capsmd-6x7",
+        "capsmd-6x7_1",
+        "capsmd-6x7_2",
+        "capsmd-6x7_3"
+      ],
+      "triangles": 3408,
+      "bytes": 64832,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Electronics%20Parts/Capacitors/SMD"
+    },
+    {
+      "id": "push_button",
+      "name": "Tactile push button (THT)",
+      "type": "button",
+      "category": "ecad",
+      "file": "push_button.glb",
+      "size": [
+        0.013,
+        0.012,
+        0.015
+      ],
+      "material": "plastic",
+      "parts": [
+        "Fusion004",
+        "Fusion004_1",
+        "Fusion004_2",
+        "Tapon",
+        "Tapon_1",
+        "Fillet",
+        "ChapaMetalica"
+      ],
+      "triangles": 5444,
+      "bytes": 109068,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Electronics%20Parts/Buttons/THT"
+    },
+    {
+      "id": "atmega328p",
+      "name": "ATmega328P-PU (DIP-28 microcontroller)",
+      "type": "mcu",
+      "category": "ecad",
+      "file": "atmega328p.glb",
+      "size": [
+        0.035,
+        0.00787,
+        0.00726
+      ],
+      "material": "plastic",
+      "parts": [
+        "body"
+      ],
+      "triangles": 8596,
+      "bytes": 155944,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Electronics%20Parts/Microcontroller/ATMEL/ATMEGA328P_PU"
+    },
+    {
+      "id": "chair_simple",
+      "name": "Simple wooden chair",
+      "type": "chair",
+      "category": "cad",
+      "file": "chair_simple.glb",
+      "size": [
+        0.48,
+        0.5,
+        1.06
+      ],
+      "material": "wood",
+      "parts": [
+        "SimpleChair"
+      ],
+      "triangles": 3670,
+      "bytes": 67064,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Industrial%20Design/Chairs"
+    },
+    {
+      "id": "table_generic",
+      "name": "Generic table",
+      "type": "table",
+      "category": "cad",
+      "file": "table_generic.glb",
+      "size": [
+        2.0,
+        1.0,
+        0.95
+      ],
+      "material": "wood",
+      "parts": [
+        "GenericTable_1x2m"
+      ],
+      "triangles": 290,
+      "bytes": 6200,
+      "license": "CC-BY-3.0",
+      "author": "FreeCAD-library contributors",
+      "source": "https://github.com/FreeCAD/FreeCAD-library/tree/master/Industrial%20Design/Tables"
+    },
+    {
+      "id": "sofa_glam",
+      "name": "Glam velvet sofa",
+      "type": "sofa",
+      "category": "cad",
+      "file": "sofa_glam.glb",
+      "size": [
+        2.18844,
+        1.02283,
+        0.78754
+      ],
+      "material": "default",
+      "parts": [
+        "GlamVelvetSofa_feet",
+        "GlamVelvetSofa_fabric",
+        "GlamVelvetSofa_legs"
+      ],
+      "triangles": 4196,
+      "bytes": 81512,
+      "license": "CC-BY-4.0",
+      "author": "Wayfair, LLC (Khronos glTF-Sample-Assets)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/GlamVelvetSofa"
+    },
+    {
+      "id": "lamp_maitland",
+      "name": "Maitland-style table lamp",
+      "type": "lamp",
+      "category": "cad",
+      "file": "lamp_maitland.glb",
+      "size": [
+        1.12699,
+        0.7216,
+        1.86356
+      ],
+      "material": "default",
+      "parts": [
+        "GLTF_2",
+        "GLTF_1",
+        "GLTF"
+      ],
+      "triangles": 6000,
+      "bytes": 877696,
+      "license": "CC-BY-4.0",
+      "author": "DGG (Khronos glTF-Sample-Assets)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/LightsPunctualLamp"
+    }
+  ]
+}

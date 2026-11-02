@@ -1,0 +1,22 @@
+canonical,category,weight,synonyms
+cube,cad,3,cube|box|block|square block|cuboid
+cylinder,cad,3,cylinder|pipe|tube|rod|pillar|column
+sphere,cad,3,sphere|ball|globe
+wall,cad,3,wall|partition|wall panel
+table,cad,6,table|dining table|coffee table|workbench|work table|worktable|kitchen table
+desk,cad,4,desk|writing desk|office desk|computer desk|study desk
+chair,cad,6,chair|stool|seat|office chair|dining chair|armchair
+sofa,cad,3,sofa|couch|settee|loveseat
+lamp,cad,4,lamp|desk lamp|table lamp|floor lamp|light|reading lamp
+laptop,cad,5,laptop|notebook|laptop computer|notebook computer|macbook
+pcb,ecad,4,pcb|circuit board|printed circuit board|blank pcb|perfboard|board
+arduino_uno,ecad,6,arduino|arduino uno|uno|uno board|arduino board|arduino uno r3|uno r3
+arduino_nano,ecad,3,arduino nano|nano|nano board
+arduino_mega,ecad,3,arduino mega|mega|mega 2560|arduino mega 2560
+pico,ecad,3,raspberry pi pico|pi pico|pico|raspberry pico|rp2040 board
+esp32,ecad,3,esp32|esp 32|esp32 board|esp32 devkit|esp32 dev board
+resistor,ecad,5,resistor|axial resistor|resistance
+led,ecad,5,led|diode|light emitting diode|status led
+capacitor,ecad,4,capacitor|cap|electrolytic capacitor
+mcu,ecad,4,mcu|microcontroller|chip|ic|atmega|atmega328|atmega328p|processor
+button,ecad,3,button|push button|pushbutton|tactile switch|switch|tact switch

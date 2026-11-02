@@ -1,0 +1,509 @@
+intent,split,template
+create_object,train,create a {OBJ}
+create_object,train,create a {COLOR} {OBJ}
+create_object,train,create a {MATERIAL} {OBJ}
+create_object,train,create a {COLOR} {MATERIAL} {OBJ}
+create_object,train,add a {OBJ}
+create_object,train,add a {COLOR} {OBJ}
+create_object,train,make a {OBJ}
+create_object,train,make a {COLOR} {OBJ} {WIDTH}
+create_object,train,draw a {OBJ}
+create_object,train,generate a {OBJ}
+create_object,train,insert a {OBJ}
+create_object,train,place a {OBJ}
+create_object,train,put a {OBJ} in the scene
+create_object,train,i need a {OBJ}
+create_object,train,i want a {COLOR} {OBJ}
+create_object,train,give me a {OBJ}
+create_object,train,build a {MATERIAL} {OBJ} {WIDTH}
+create_object,train,create a {MATERIAL} {OBJ} {WIDTH} and {DEPTH}
+create_object,train,create a {OBJ} {WIDTH} {DEPTH} and {HEIGHT}
+create_object,train,create a {OBJ} {SIZE}
+create_object,train,add a {OBJ} that is {SIZE}
+create_object,train,create a {DIM} {OBJ}
+create_object,train,create a {DIM} {COLOR} {OBJ}
+create_object,train,make a {OBJ} {HEIGHT}
+create_object,train,create a {COLOR} {OBJ} {SIZE}
+create_object,train,create a {DIAMETER} {OBJ:round}
+create_object,train,add a {COLOR} {OBJ:round} {DIAMETER}
+create_object,train,create a {OBJ} {REL} the {REF}
+create_object,train,add a {COLOR} {OBJ} {REL} the {REF}
+create_object,train,put a {OBJ} {REL} the {REF}
+create_object,train,place a {MATERIAL} {OBJ} {REL} the {REF}
+create_object,train,create a {OBJ} {WIDTH} {REL} the {REF}
+create_object,train,create {COUNT} {OBJ:plural}
+create_object,train,add {COUNT} {COLOR} {OBJ:plural}
+create_object,train,create {COUNT} {OBJ:plural} {REL} the {REF}
+create_object,train,make {COUNT} {OBJ:plural} {REL:around} the {REF}
+create_object,train,put {COUNT} {OBJ:plural} {REL:around} the {REF}
+create_object,train,add {COUNT} {OBJ:plural} in a row
+create_object,train,add a {VALUE:res} {OBJ:resistor}
+create_object,train,place a {VALUE:cap} {OBJ:capacitor}
+create_object,train,add a {COLOR} {OBJ:led}
+create_object,train,add a {OBJ:ecad}
+create_object,train,place a {OBJ:ecad} {REL} the {REF:ecad}
+create_object,train,put an {OBJ:led} {REL:on} the {REF:board}
+create_object,train,create a {OBJ:board} {SIZE}
+create_object,train,add a {COLOR} {OBJ} {DIM}
+create_object,train,create a laptop with the screen open at {ANGLE}
+create_object,train,make a {COLOR} laptop {WIDTH} with the screen at {ANGLE}
+create_object,test,could you sketch up a {OBJ} for me
+create_object,test,i would like a {COLOR} {OBJ} {REL} the {REF}
+create_object,test,let us add a {OBJ} {WIDTH}
+create_object,test,spawn a {OBJ}
+create_object,test,bring in a {MATERIAL} {OBJ}
+create_object,test,new {OBJ}
+create_object,test,make me a {SIZE} {OBJ}
+create_object,test,i would like {COUNT} {OBJ:plural} please
+create_object,test,throw in a {COLOR} {OBJ} {REL} the {REF}
+create_object,test,model a {MATERIAL} {OBJ} that is {HEIGHT}
+create_object,test,create a {OBJ} with a {DIAMETER}
+resize_object,train,make the {TARGET} {WIDTH}
+resize_object,train,make the {TARGET} {HEIGHT}
+resize_object,train,make the {TARGET} {DEPTH}
+resize_object,train,make the {TARGET} {WIDTH} and {HEIGHT}
+resize_object,train,set the {TARGET} {AXIS:noun} to {DIM}
+resize_object,train,set the {AXIS:noun} of the {TARGET} to {DIM}
+resize_object,train,change the {AXIS:noun} of the {TARGET} to {DIM}
+resize_object,train,change the {TARGET} {AXIS:noun} to {DIM}
+resize_object,train,resize the {TARGET} to {SIZE}
+resize_object,train,set the {TARGET} size to {SIZE}
+resize_object,train,make the {TARGET} {SIZE}
+resize_object,train,scale the {TARGET} to {SIZE}
+resize_object,train,change the {TARGET} to {SIZE}
+resize_object,train,make it {WIDTH}
+resize_object,train,make it {HEIGHT}
+resize_object,train,resize it to {SIZE}
+resize_object,train,set its {AXIS:noun} to {DIM}
+resize_object,train,set the {AXIS:noun} to {DIM}
+resize_object,train,make the {TARGET:round} {DIAMETER}
+resize_object,train,set the {TARGET:round} {AXIS:round} to {DIM}
+resize_object,train,adjust the {TARGET} {AXIS:noun} to {DIM}
+resize_object,train,the {TARGET} should be {WIDTH}
+resize_object,train,i want the {TARGET} to be {HEIGHT}
+resize_object,test,could you make the {TARGET} {HEIGHT}
+resize_object,test,i need the {TARGET} {WIDTH} and {DEPTH}
+resize_object,test,let the {TARGET} be {SIZE}
+resize_object,test,update the {TARGET} so its {AXIS:noun} is {DIM}
+resize_object,test,{TARGET} {AXIS:noun} {DIM}
+resize_object,test,adjust it to be {SIZE}
+scale_object,train,make the {TARGET} {AXIS:rel}
+scale_object,train,make the {TARGET} {AMOUNT:abs} {AXIS:rel}
+scale_object,train,make the {TARGET} {AMOUNT:factor} as {AXIS:adj}
+scale_object,train,increase the {AXIS:noun} of the {TARGET} by {AMOUNT}
+scale_object,train,decrease the {TARGET} {AXIS:noun} by {AMOUNT}
+scale_object,train,reduce the {AXIS:noun} of the {TARGET} by {AMOUNT}
+scale_object,train,enlarge the {TARGET} by {AMOUNT}
+scale_object,train,shrink the {TARGET} by {AMOUNT}
+scale_object,train,scale the {TARGET} by {AMOUNT}
+scale_object,train,scale up the {TARGET} by {AMOUNT}
+scale_object,train,scale down the {TARGET} {AMOUNT}
+scale_object,train,{AMOUNT:verb} the {TARGET}
+scale_object,train,make it {AXIS:rel}
+scale_object,train,make it {AMOUNT:small} {AXIS:rel}
+scale_object,train,make the {TARGET} {AMOUNT:small} {AXIS:rel}
+scale_object,train,make it {AMOUNT:abs} {AXIS:rel}
+scale_object,train,make it {AMOUNT:factor} as {AXIS:adj}
+scale_object,train,grow the {TARGET} by {AMOUNT}
+scale_object,train,stretch the {TARGET} {AMOUNT:abs} {AXIS:rel}
+scale_object,train,extend the {TARGET} by {AMOUNT}
+scale_object,train,raise the height of the {TARGET} by {AMOUNT}
+scale_object,test,i need the {TARGET} {AXIS:rel}
+scale_object,test,make the {TARGET} {AMOUNT:small} {AXIS:rel} please
+scale_object,test,bump up the {AXIS:noun} of the {TARGET} by {AMOUNT}
+scale_object,test,could you make the {TARGET} {AMOUNT:abs} {AXIS:rel}
+scale_object,test,{AMOUNT:verb} the size of the {TARGET}
+move_object,train,move the {TARGET} {REL} the {REF}
+move_object,train,put the {TARGET} {REL} the {REF}
+move_object,train,place the {TARGET} {REL} the {REF}
+move_object,train,move the {TARGET} {DISTANCE} to the {DIRECTION}
+move_object,train,move the {TARGET} {DIRECTION:plain} by {DISTANCE}
+move_object,train,shift the {TARGET} {DISTANCE} {DIRECTION:plain}
+move_object,train,slide the {TARGET} to the {DIRECTION}
+move_object,train,push the {TARGET} {DIRECTION:plain}
+move_object,train,move the {TARGET} {DIRECTION:plain}
+move_object,train,lift the {TARGET} by {DISTANCE}
+move_object,train,raise the {TARGET} {DISTANCE}
+move_object,train,lower the {TARGET} by {DISTANCE}
+move_object,train,bring the {TARGET} {REL:beside} the {REF}
+move_object,train,move it {REL} the {REF}
+move_object,train,put it {REL} the {REF}
+move_object,train,move it {DISTANCE} {DIRECTION:plain}
+move_object,train,shift it {DIRECTION:plain}
+move_object,train,put the {TARGET} on the {REF:floor}
+move_object,train,center the {TARGET}
+move_object,train,position the {TARGET} {REL} the {REF}
+move_object,train,set the {TARGET} {REL} the {REF}
+move_object,train,move the {TARGET} {DISTANCE} {DIRECTION:plain}
+move_object,test,could you slide the {TARGET} {DIRECTION:plain} a bit
+move_object,test,get the {TARGET} {REL} the {REF}
+move_object,test,i want the {TARGET} {REL} the {REF}
+move_object,test,nudge the {TARGET} {DISTANCE} {DIRECTION:plain}
+move_object,test,relocate the {TARGET} {REL} the {REF}
+move_object,test,move that {REL} the {REF}
+rotate_object,train,rotate the {TARGET} {ANGLE}
+rotate_object,train,rotate the {TARGET} by {ANGLE}
+rotate_object,train,turn the {TARGET} {ANGLE} {DIRECTION:rot}
+rotate_object,train,spin the {TARGET} {ANGLE}
+rotate_object,train,rotate it {ANGLE}
+rotate_object,train,rotate the {TARGET} {ANGLE} {DIRECTION:rot}
+rotate_object,train,turn the {TARGET} around
+rotate_object,train,turn it {ANGLE}
+rotate_object,train,rotate it by {ANGLE} {DIRECTION:rot}
+rotate_object,train,flip the {TARGET} around
+rotate_object,train,rotate the {TARGET} so it faces the other way
+rotate_object,test,twist the {TARGET} {ANGLE}
+rotate_object,test,i want the {TARGET} turned {ANGLE}
+rotate_object,test,swivel it {ANGLE} {DIRECTION:rot}
+set_color,train,make the {TARGET} {COLOR}
+set_color,train,paint the {TARGET} {COLOR}
+set_color,train,color the {TARGET} {COLOR}
+set_color,train,change the color of the {TARGET} to {COLOR}
+set_color,train,change the {TARGET} color to {COLOR}
+set_color,train,set the {TARGET} color to {COLOR}
+set_color,train,turn the {TARGET} {COLOR}
+set_color,train,make it {COLOR}
+set_color,train,paint it {COLOR}
+set_color,train,color it {COLOR}
+set_color,train,recolor the {TARGET} {COLOR}
+set_color,train,i want the {TARGET} in {COLOR}
+set_color,train,the {TARGET} should be {COLOR}
+set_color,train,change it to {COLOR}
+set_color,train,make the {OBJ:led} {COLOR}
+set_color,train,set the color to {COLOR}
+set_color,train,give the {TARGET} a {COLOR} finish
+set_color,test,could you paint the {TARGET} {COLOR}
+set_color,test,let us make the {TARGET} {COLOR}
+set_color,test,{TARGET} {COLOR} please
+set_color,test,i prefer the {TARGET} {COLOR}
+set_material,train,make the {TARGET} out of {MATERIAL}
+set_material,train,make the {TARGET} from {MATERIAL}
+set_material,train,make the {TARGET} {MATERIAL:adj}
+set_material,train,change the material of the {TARGET} to {MATERIAL}
+set_material,train,set the {TARGET} material to {MATERIAL}
+set_material,train,change it to {MATERIAL}
+set_material,train,use {MATERIAL} for the {TARGET}
+set_material,train,apply {MATERIAL} to the {TARGET}
+set_material,train,the {TARGET} should be made of {MATERIAL}
+set_material,train,switch the {TARGET} to {MATERIAL}
+set_material,train,make it {MATERIAL:adj}
+set_material,train,set the material to {MATERIAL}
+set_material,test,could you make the {TARGET} {MATERIAL:adj}
+set_material,test,i would like the {TARGET} in {MATERIAL}
+set_material,test,swap the {TARGET} material for {MATERIAL}
+set_property,train,set the {TARGET} {PROP} to {ANGLE}
+set_property,train,change the {PROP} of the {TARGET} to {ANGLE}
+set_property,train,open the {TARGET} to {ANGLE}
+set_property,train,open the {TARGET} {PROP} to {ANGLE}
+set_property,train,set the {PROP} to {ANGLE}
+set_property,train,tilt the {PROP} to {ANGLE}
+set_property,train,open the {PROP} {ANGLE}
+set_property,train,adjust the {PROP} to {ANGLE}
+set_property,train,close the {TARGET}
+set_property,train,open the {TARGET}
+set_property,train,close the {PROP}
+set_property,train,open the {TARGET} fully
+set_property,train,set the {TARGET} {PROP} {ANGLE}
+set_property,test,lean the {PROP} back to {ANGLE}
+set_property,test,i want the {PROP} at {ANGLE}
+set_property,test,fold the {TARGET} shut
+set_property,test,bring the {PROP} to {ANGLE}
+delete_object,train,delete the {TARGET}
+delete_object,train,remove the {TARGET}
+delete_object,train,get rid of the {TARGET}
+delete_object,train,erase the {TARGET}
+delete_object,train,delete it
+delete_object,train,remove it
+delete_object,train,get rid of it
+delete_object,train,trash the {TARGET}
+delete_object,train,i do not need the {TARGET} anymore
+delete_object,train,take away the {TARGET}
+delete_object,train,discard the {TARGET}
+delete_object,train,delete {TARGET:all}
+delete_object,train,remove {TARGET:all}
+delete_object,train,delete that
+delete_object,train,delete the {TARGET} {REL} the {REF}
+delete_object,train,delete the selected object
+delete_object,test,please get that {TARGET} out of here
+delete_object,test,drop the {TARGET}
+delete_object,test,i want the {TARGET} gone
+delete_object,test,dispose of the {TARGET}
+clear_scene,train,clear the scene
+clear_scene,train,clear everything
+clear_scene,train,delete everything
+clear_scene,train,remove everything
+clear_scene,train,start over
+clear_scene,train,start a new scene
+clear_scene,train,new scene
+clear_scene,train,reset the scene
+clear_scene,train,empty the scene
+clear_scene,train,wipe everything
+clear_scene,train,clear the canvas
+clear_scene,train,start fresh
+clear_scene,train,remove all objects
+clear_scene,train,delete all objects
+clear_scene,test,get rid of everything in the scene
+clear_scene,test,i want to start from scratch
+clear_scene,test,blank canvas
+duplicate_object,train,duplicate the {TARGET}
+duplicate_object,train,copy the {TARGET}
+duplicate_object,train,clone the {TARGET}
+duplicate_object,train,duplicate it
+duplicate_object,train,make a copy of the {TARGET}
+duplicate_object,train,make {COUNT} copies of the {TARGET}
+duplicate_object,train,duplicate the {TARGET} {COUNT} times
+duplicate_object,train,copy it {COUNT} times
+duplicate_object,train,add another {TARGET}
+duplicate_object,train,make another {TARGET}
+duplicate_object,train,make {COUNT} more {TARGET:plural}
+duplicate_object,train,clone it {COUNT} times
+duplicate_object,train,make another one
+duplicate_object,train,duplicate the {TARGET} and put it {REL} the {REF}
+duplicate_object,test,i need {COUNT} more of the {TARGET}
+duplicate_object,test,replicate the {TARGET}
+duplicate_object,test,give me another {TARGET}
+select_object,train,select the {TARGET}
+select_object,train,pick the {TARGET}
+select_object,train,click on the {TARGET}
+select_object,train,choose the {TARGET}
+select_object,train,focus on the {TARGET}
+select_object,train,highlight the {TARGET}
+select_object,train,go to the {TARGET}
+select_object,train,select {TARGET}
+select_object,train,select the {TARGET} {REL} the {REF}
+select_object,train,show me the {TARGET}
+select_object,test,i want to edit the {TARGET}
+select_object,test,grab the {TARGET}
+select_object,test,switch to the {TARGET}
+rename_object,train,rename the {TARGET} to {NAME}
+rename_object,train,call the {TARGET} {NAME}
+rename_object,train,name the {TARGET} {NAME}
+rename_object,train,rename it {NAME}
+rename_object,train,rename it to {NAME}
+rename_object,train,change the name of the {TARGET} to {NAME}
+rename_object,train,label the {TARGET} as {NAME}
+rename_object,train,set the name to {NAME}
+rename_object,test,i would like to call the {TARGET} {NAME}
+rename_object,test,let us name this one {NAME}
+undo,train,undo
+undo,train,undo that
+undo,train,undo the last action
+undo,train,go back
+undo,train,revert that
+undo,train,take that back
+undo,train,undo it
+undo,train,undo the last change
+undo,train,step back
+undo,train,oops undo
+undo,train,cancel that
+undo,test,that was wrong undo it
+undo,test,reverse the last step
+redo,train,redo
+redo,train,redo that
+redo,train,redo it
+redo,train,redo the last action
+redo,train,do that again
+redo,train,go forward
+redo,test,bring back what i just undid
+redo,test,reapply the last change
+export_file,train,export as {FORMAT}
+export_file,train,export to {FORMAT}
+export_file,train,export the design as {FORMAT}
+export_file,train,save as {FORMAT}
+export_file,train,download as {FORMAT}
+export_file,train,download the {FORMAT}
+export_file,train,give me an {FORMAT} file
+export_file,train,export {FORMAT}
+export_file,train,i need the {FORMAT} file
+export_file,train,generate the {FORMAT}
+export_file,train,export the scene to {FORMAT}
+export_file,train,export a {FORMAT} for 3d printing
+export_file,train,create a {FORMAT} export
+export_file,train,get the {FORMAT}
+export_file,test,could you export this as {FORMAT}
+export_file,test,i want to download an {FORMAT}
+export_file,test,output the model in {FORMAT}
+export_file,test,convert the design to {FORMAT}
+save_project,train,save the project
+save_project,train,save my work
+save_project,train,save the design
+save_project,train,save it
+save_project,train,save project
+save_project,train,save the scene
+save_project,train,save this
+save_project,test,keep a copy of my work
+save_project,test,store the project file
+set_mode,train,switch to {MODE} mode
+set_mode,train,go to {MODE} mode
+set_mode,train,change to {MODE}
+set_mode,train,enable {MODE} mode
+set_mode,train,use {MODE} mode
+set_mode,train,{MODE} mode
+set_mode,train,open the {MODE} workspace
+set_mode,train,switch to {MODE}
+set_mode,train,i want to do {MODE}
+set_mode,test,let us work in {MODE}
+set_mode,test,take me to {MODE} mode
+set_view,train,show the {VIEW:dir} view
+set_view,train,go to {VIEW:dir} view
+set_view,train,switch to the {VIEW:dir} view
+set_view,train,{VIEW:dir} view
+set_view,train,look from the {VIEW:dir}
+set_view,train,view from the {VIEW:dir}
+set_view,train,show me the {VIEW:dir}
+set_view,train,{VIEW:cmd}
+set_view,train,{VIEW:cmd} please
+set_view,train,change the camera to {VIEW:dir}
+set_view,train,reset the camera
+set_view,train,{VIEW:zoom} on the {TARGET}
+set_view,test,take me to the {VIEW:dir} view
+set_view,test,can you {VIEW:cmd}
+set_view,test,camera {VIEW:dir}
+connect_parts,train,connect the {TARGET:ecad} to the {REF:ecad}
+connect_parts,train,wire the {TARGET:ecad} to the {REF:ecad}
+connect_parts,train,connect {TARGET:ecad} and {REF:ecad}
+connect_parts,train,link the {TARGET:ecad} with the {REF:ecad}
+connect_parts,train,join the {TARGET:ecad} to the {REF:ecad}
+connect_parts,train,run a wire from the {TARGET:ecad} to the {REF:ecad}
+connect_parts,train,add a trace between the {TARGET:ecad} and the {REF:ecad}
+connect_parts,train,connect the {TARGET:ecad} with a wire to the {REF:ecad}
+connect_parts,train,wire up {TARGET:ecad} to {REF:ecad}
+connect_parts,test,i want the {TARGET:ecad} wired to the {REF:ecad}
+connect_parts,test,hook the {TARGET:ecad} up to the {REF:ecad}
+set_value,train,set the {TARGET:ecad} to {VALUE}
+set_value,train,change the {TARGET:ecad} value to {VALUE}
+set_value,train,make the {TARGET:ecad} {VALUE}
+set_value,train,set {TARGET:ecad} value to {VALUE}
+set_value,train,the {TARGET:ecad} should be {VALUE}
+set_value,train,set the value of the {TARGET:ecad} to {VALUE}
+set_value,train,change it to {VALUE}
+set_value,train,make it {VALUE}
+set_value,train,use a {VALUE} for the {TARGET:ecad}
+set_value,test,i need the {TARGET:ecad} to be {VALUE}
+set_value,test,update the {TARGET:ecad} to {VALUE}
+query_scene,train,what is in the scene
+query_scene,train,list the objects
+query_scene,train,how many objects are there
+query_scene,train,what objects do i have
+query_scene,train,what is selected
+query_scene,train,describe the scene
+query_scene,train,what is the size of the {TARGET}
+query_scene,train,how big is the {TARGET}
+query_scene,train,what are the dimensions of the {TARGET}
+query_scene,train,tell me about the {TARGET}
+query_scene,train,how many {TARGET:plural} are there
+query_scene,train,where is the {TARGET}
+query_scene,test,give me a summary of the scene
+query_scene,test,what have i got so far
+query_scene,test,how tall is the {TARGET}
+help,train,what can you do
+help,train,help
+help,train,show me examples
+help,train,how do i use this
+help,train,what commands are available
+help,train,give me some ideas
+help,train,i need help
+help,train,how does this work
+help,train,what can i say
+help,test,what are you able to do
+help,test,show me what commands work
+help,test,i am stuck what now
+clear_scene,train,get rid of everything in the scene
+clear_scene,train,get rid of everything
+clear_scene,train,start from scratch
+clear_scene,train,i want to start from scratch please
+clear_scene,train,empty out the whole scene
+clear_scene,train,wipe the scene clean
+clear_scene,train,remove every object from the scene
+clear_scene,train,delete every object
+clear_scene,train,clear all of it
+clear_scene,train,reset everything
+clear_scene,train,start the project over
+clear_scene,train,throw everything out
+clear_scene,train,make the scene empty
+clear_scene,train,clean up the scene
+clear_scene,train,remove everything from the canvas
+redo,train,reapply the last change
+redo,train,reapply that
+redo,train,bring back what i just undid
+redo,train,restore what i undid
+redo,train,redo the change i undid
+redo,train,undo the undo
+redo,train,put back the last change
+redo,train,redo please
+redo,train,do it again
+redo,train,reapply the last action
+redo,train,redo my last step
+undo,train,reverse the last step
+undo,train,reverse that
+undo,train,reverse the last change
+undo,train,undo my last change
+undo,train,undo what i just did
+undo,train,take back the last step
+undo,train,undo last action
+undo,train,roll back the last change
+undo,train,undo please
+save_project,train,save the project file
+save_project,train,save my progress
+save_project,train,keep a copy of my work
+save_project,train,store the project
+save_project,train,save everything i have done
+save_project,train,save my design
+save_project,train,store my work
+save_project,train,save the current project
+save_project,train,save my scene
+save_project,train,save progress
+select_object,train,i want to edit the {TARGET}
+select_object,train,edit the {TARGET}
+select_object,train,grab the {TARGET}
+select_object,train,switch to the {TARGET}
+select_object,train,work on the {TARGET}
+select_object,train,pick up the {TARGET}
+select_object,train,target the {TARGET}
+select_object,train,select the {TARGET} so i can edit it
+select_object,train,bring up the {TARGET}
+select_object,train,focus the {TARGET}
+help,train,what are you able to do
+help,train,what are you capable of
+help,train,what can i ask you
+help,train,show me what commands work
+help,train,list the commands
+help,train,what commands do you understand
+help,train,how can i use you
+help,train,give me a list of things i can say
+help,train,what do you do
+help,train,explain what you can do
+help,train,i am stuck what can i say
+query_scene,train,what have i got so far
+query_scene,train,give me a summary of the scene
+query_scene,train,summarize the scene
+query_scene,train,what is on the canvas
+query_scene,train,how tall is the {TARGET}
+query_scene,train,what does the scene contain
+query_scene,train,what have i made so far
+query_scene,train,count the objects
+query_scene,train,show the scene contents
+delete_object,train,get rid of the {TARGET}
+delete_object,train,drop the {TARGET}
+delete_object,train,delete the {TARGET} please
+delete_object,train,remove the {TARGET} from the scene
+delete_object,train,get the {TARGET} out of here
+delete_object,train,dispose of the {TARGET}
+delete_object,train,delete the {TARGET} i just made
+delete_object,train,i want the {TARGET} gone
+duplicate_object,train,give me another {TARGET}
+duplicate_object,train,i need another {TARGET}
+duplicate_object,train,replicate the {TARGET}
+duplicate_object,train,make a second {TARGET}
+duplicate_object,train,add one more {TARGET}
+rename_object,train,let us name this one {NAME}
+rename_object,train,name this one {NAME}
+rename_object,train,call this {NAME}
+rename_object,train,i want to call the {TARGET} {NAME}
+move_object,train,slide the {TARGET} down a bit
+move_object,train,move the {TARGET} down
+move_object,train,move the {TARGET} up a bit
+move_object,train,nudge the {TARGET} {DIRECTION:plain}
+set_mode,train,let us work in {MODE}
+set_mode,train,take me to {MODE} mode
+set_mode,train,switch the workspace to {MODE}

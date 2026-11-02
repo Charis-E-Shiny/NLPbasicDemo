@@ -1,0 +1,70 @@
+{
+  "intent": {
+    "synthetic_test": {
+      "accuracy": 0.8713,
+      "macro_f1": 0.8375
+    },
+    "gold": {
+      "accuracy": 0.9872,
+      "macro_f1": 0.989
+    },
+    "oos_rejection": {
+      "rate": 0.5238,
+      "n": 21
+    },
+    "gold_confidence_p10": 0.9744,
+    "threshold_sweep": {
+      "0.3": {
+        "oos_rejected": 0.5238,
+        "gold_false_reject": 0.0,
+        "synthetic_false_reject": 0.0159
+      },
+      "0.4": {
+        "oos_rejected": 0.5238,
+        "gold_false_reject": 0.0,
+        "synthetic_false_reject": 0.036
+      },
+      "0.5": {
+        "oos_rejected": 0.619,
+        "gold_false_reject": 0.0064,
+        "synthetic_false_reject": 0.0579
+      },
+      "0.6": {
+        "oos_rejected": 0.619,
+        "gold_false_reject": 0.0128,
+        "synthetic_false_reject": 0.0945
+      },
+      "0.7": {
+        "oos_rejected": 0.619,
+        "gold_false_reject": 0.0256,
+        "synthetic_false_reject": 0.1512
+      }
+    },
+    "threshold_used": 0.5,
+    "oos_rejection_with_threshold": 0.619
+  },
+  "slots": {
+    "gold_gold_intent": {
+      "precision": 0.9508,
+      "recall": 0.9472,
+      "f1": 0.949
+    },
+    "gold_predicted_intent": {
+      "precision": 0.943,
+      "recall": 0.9358,
+      "f1": 0.9394
+    },
+    "gold_token_accuracy": 0.975,
+    "synthetic_test": {
+      "precision": 0.9935,
+      "recall": 0.9687,
+      "f1": 0.9809
+    }
+  },
+  "data": {
+    "train": 13755,
+    "synthetic_test": 1640,
+    "gold": 156,
+    "oos_eval": 21
+  }
+}

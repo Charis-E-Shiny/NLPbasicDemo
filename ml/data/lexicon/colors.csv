@@ -1,0 +1,63 @@
+name,hex
+red,#ef4444
+blue,#3b82f6
+green,#22c55e
+yellow,#eab308
+orange,#f97316
+purple,#8b5cf6
+pink,#ec4899
+black,#111827
+white,#ffffff
+gray,#94a3b8
+grey,#94a3b8
+brown,#8b5a2b
+silver,#c0c5cc
+gold,#d4af37
+beige,#e8dcc0
+cyan,#06b6d4
+magenta,#d946ef
+teal,#0d9488
+navy,#1e3a8a
+maroon,#7f1d1d
+olive,#808000
+lime,#84cc16
+turquoise,#2dd4bf
+violet,#7c3aed
+indigo,#4f46e5
+crimson,#dc143c
+lavender,#c4b5fd
+coral,#fb7185
+tan,#d2b48c
+cream,#fff4d6
+charcoal,#374151
+rose,#f43f5e
+mint,#86efac
+peach,#fdba74
+amber,#f59e0b
+light blue,#93c5fd
+dark blue,#1d4ed8
+sky blue,#38bdf8
+navy blue,#1e3a8a
+royal blue,#2563eb
+light green,#86efac
+dark green,#15803d
+forest green,#166534
+lime green,#65a30d
+olive green,#6b7a21
+light gray,#cbd5e1
+light grey,#cbd5e1
+dark gray,#4b5563
+dark grey,#4b5563
+dark red,#991b1b
+bright red,#ff1f1f
+light brown,#b9855a
+dark brown,#5c3a1a
+hot pink,#ff4fa3
+light pink,#fbcfe8
+pale yellow,#fef08a
+burnt orange,#cc5500
+dark purple,#581c87
+light purple,#c4b5fd
+off white,#f5f5f0
+jet black,#0a0a0a
+matte black,#1f2937
